@@ -6,33 +6,30 @@
 			// LDAP Bind
 			$userName = $_POST["userName"];
 			
-			$ldaprdn  = 'uid='+$userName+',dc=nebulae,dc=co';
+			$ldaprdn  = 'uid='.$userName.',ou=People,dc=nebulae,dc=co';
 			$ldappass = $_POST["password"];
+                        
+                        ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
+                        ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
 			// connect to ldap server
-			$ldapconn = ldap_connect("192.168.100.30")
+			$ldapconn = ldap_connect("ldap://192.168.100.30")
 			    or die("Could not connect to LDAP server.");
 
 			if ($ldapconn) {
+        		    $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
 
-			    // binding to ldap server
-			    $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
-
-			    // verify binding
 			    if ($ldapbind) {
-			        echo "LDAP bind successful...";
+                                $justthese = array("uid", "mail", "displayname");
+                                $result = ldap_read($ldapconn, $ldaprdn, '(objectclass=*)', $justthese);
+                                $info = ldap_get_entries($ldapconn, $result);
+                                $_SESSION["user"] = $info[0];
+                                #header("Location: index.php");
 			    } else {
-			        echo "LDAP bind failed...";
+			        $error= "Nom d'utilisateur ou mot de passe incorrect.";
 			    }
-
+                            ldap_close($ldapconn);   
 			}
-
-			if(true){
-
-			}else{
-				$error = "Nom d'utilisateur ou mot de passe incorrect.";
-			}
-
 		}else{
 			$error = "Entre ton nom d'utilisateur <strong>et</strong> ton mot de passe!";
 		}
