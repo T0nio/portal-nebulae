@@ -4,8 +4,10 @@
     /*if(empty($_SESSION["user"])){
         header("Location: login.php");
     }*/
+    if($_SESSION["user"]["gidnumber"][0] != 501){
+      header("Location: index.php");
+    }
 
-    //gidnumber
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +41,14 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Portail</a></li>
             <li><a href="/profile.php">Modifier mon profile</a></li>
-            <li class="active"><a href="/admin.php">Admin</a></li>
+            <?php 
+              if($_SESSION['user']["gidnumber"][0] == 501):
+            ?>
+            <li><a href="/admin.php">Admin</a></li>
+            <?php 
+              endif;
+            ?>
+            <li><a href="/logout.php">Déconnexion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

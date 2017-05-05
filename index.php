@@ -39,7 +39,14 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Portail</a></li>
             <li><a href="/profile.php">Modifier mon profile</a></li>
+            <?php 
+            	if($_SESSION['user']["gidnumber"][0] == 501):
+            ?>
             <li><a href="/admin.php">Admin</a></li>
+            <?php 
+            	endif;
+            ?>
+            <li><a href="/logout.php">Déconnexion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

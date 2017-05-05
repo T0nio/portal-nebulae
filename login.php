@@ -1,6 +1,10 @@
 <?php
 	session_start();
 
+    if(!empty($_SESSION["user"])){
+        header("Location: index.php");
+    }
+
 	if(!empty($_POST)){
 		if(!empty($_POST["userName"]) && !empty($_POST["password"])){
 			// LDAP Bind
