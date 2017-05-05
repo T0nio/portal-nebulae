@@ -41,3 +41,25 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.logo-header img{
+  margin: -10px 0;
+  height: 40px;
+}
+
+.main-cont{
+  margin-top: 20px;
+}
+
+.jumbotron{
+  background: white; 
+}
+
+#services img{
+  width: 100%;
+}
+
+#services p{
+  text-align: center;
+  padding: 10px 15px;
+}
