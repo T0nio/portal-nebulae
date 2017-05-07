@@ -13,26 +13,26 @@
 			$ldaprdn  = 'uid='.$userName.',ou=People,dc=nebulae,dc=co';
 			$ldappass = $_POST["password"];
                         
-                        ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
-                        ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
 			// connect to ldap server
 			$ldapconn = ldap_connect("ldap://192.168.100.30")
 			    or die("Could not connect to LDAP server.");
+            
+            ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
+            ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
 
 			if ($ldapconn) {
         		    $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
 
 			    if ($ldapbind) {
-                                $justthese = array("uid", "mail", "displayname");
-                                $result = ldap_read($ldapconn, $ldaprdn, '(objectclass=*)', $justthese);
+                                $result = ldap_read($ldapconn, $ldaprdn, '(objectclass=*)');
                                 $info = ldap_get_entries($ldapconn, $result);
                                 $_SESSION["user"] = $info[0];
-                                #header("Location: index.php");
+                                header("Location: index.php");
 			    } else {
 			        $error= "Nom d'utilisateur ou mot de passe incorrect.";
 			    }
-                            ldap_close($ldapconn);   
+                ldap_close($ldapconn);   
 			}
 		}else{
 			$error = "Entre ton nom d'utilisateur <strong>et</strong> ton mot de passe!";
@@ -71,8 +71,18 @@
         <?php
         	endif;
         ?>
+        <?php 
+        	if(isset($_GET["new"])):
+        ?>
+        <div class="alert alert-success" role="alert">
+        	Ton compte a bien été crée! Tu peux te connecter maintenant!
+        	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <?php
+        	endif;
+        ?>
         <label for="userName" class="sr-only">Utilisateur</label>
-        <input type="text" id="userName" name="userName" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="userName" name="userName" class="form-control" placeholder="Nom d'utilisateur" value="<?= (isset($_GET["uid"]))?$_GET["uid"]:"" ?>" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

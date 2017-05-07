@@ -8,6 +8,27 @@
       header("Location: index.php");
     }
 
+    require "functions.php";
+
+    if(!empty($_POST)){
+      $name = $_POST["name"];
+      $myName = $_POST["myName"];
+      $doesExist = $bdd->prepare("SELECT * FROM accessCode WHERE myName = :name");
+      $doesExist->execute(array('name' => $myName));
+      if(!$doesExist->fetch()){
+        $code = crypt($myName, "nebulae");
+        $insert = $bdd->prepare("INSERT INTO accessCode (code, name, myName, used) VALUES (:code, :name, :myName, 0)");
+        $insert->execute(array(
+            "code" => $code,
+            "name" => $name,
+            "myName" => $myName
+        ));
+      }else{
+        $error = "Ce nom existe déjà";
+      }
+    }
+
+    $codes = $bdd->query('SELECT * FROM accessCode');
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +65,7 @@
             <?php 
               if($_SESSION['user']["gidnumber"][0] == 501):
             ?>
-            <li><a href="/admin.php">Admin</a></li>
+            <li class="active"><a href="/admin.php">Admin</a></li>
             <?php 
               endif;
             ?>
@@ -55,7 +76,68 @@
     </nav>
 
     <div class="container">
+      <div class="container main-cont">
+        <form class="form-inline" action="" method="POST">
+          <h2 class="text-center">Ajouter un accès</h2>
+          <?php 
+            if(isset($error)):
+          ?>
+          <div class="alert alert-danger" role="alert">
+            <?= $error; ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <?php
+            endif;
+          ?>
+          <?php 
+            if(isset($success)):
+          ?>
+          <div class="alert alert-success" role="alert">
+            <?= $success; ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <?php
+            endif;
+          ?>
+          <div class="center-form">
+            <div class="form-group">
+              <label for="name">Prenom</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Marcel">
+            </div>
+            <div class="form-group">
+              <label for="myName">Nom de gestion</label>
+              <input type="text" class="form-control" name="myName" id="myName" placeholder="Marcel K">
+            </div>
+            <button type="submit" name="submitProfile" class="btn btn-default">Ajouter un utilisateur</button>
+          </div>
+          </form>
 
+         <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Prenom</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+                while($code = $codes->fetch()){
+                ?>
+                <tr>
+                  <td><?= $code["code"]; ?></td>
+                  <td><?= $code["myName"]; ?></td>
+                  <td class="<?= $code["used"]?"green":"red"; ?>"><?= $code["used"]?"Utilisé":"Non utilisé"; ?></td>
+                </tr>
+                <?php
+                }
+              ?>
+            </tbody>
+          </table>     
+
+
+        </div>
+      </div>
     </div> <!-- /container -->
 
 		
