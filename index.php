@@ -4,9 +4,6 @@
     if(empty($_SESSION["user"])){
         header("Location: login.php");
     }
-
-    var_dump($_SESSION['user']);
-
 ?>
 <!DOCTYPE html>
 <html lang="">
