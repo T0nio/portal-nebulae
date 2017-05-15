@@ -1,0 +1,82 @@
+
+[01:32:21.630][7e9ca24b] INFO[DATA]: [DATE:09.05.17][OFFSET:-00][RL:1.11.0.203][PHP:5.6.30-0+deb8u1][IP:192.168.100.15][PID:4054][nginx/1.10.3][fpm-fcgi]
+[01:32:21.630][7e9ca24b] INFO[DATA]: [Suhosin:off][APC:off][MB:on][PDO:mysql][Streams:tcp,udp,unix,udg,ssl,sslv3,tls,tlsv1.0,tlsv1.1,tlsv1.2]
+[01:32:21.630][7e9ca24b] REQUEST[NOTE]: [POST] http://mail.nebulae.co/?/Ajax/&q[]=/_MtstslHP_ZrfKFO5SXsgttPr8uPfB9pvOuRXUMs5VBlxGBSv6ZzD_si7AS4brfBGIXok4htxRI3wPJVpzEDXgBtqEkPt-NgpPFTrhI0_nifTnXvHf2uUgJMEonspbSrxMmLtZYvb2n4Du5AjO4BtOTg1mSe7bRPNkIvN8EnD8YqYWL2CaUfrYufNdkcgA2V0GhIWRKPjgYWrKAHXgrBRP-qeZkxBqW3--qLO8Kd47Wn2rQUF_keJfVM7BXltFkec4iVOSszNtKxj26YQ6hYPKLalD5aIuA5uyLS0ddxCtVQ3mnG9wk8b7QYDs8kEoSKbmvQBw04LE49BefDUsTxQ5xICncnG0zp-/
+[01:32:21.630][7e9ca24b] AJAX[NOTE]: Action: DoContacts
+[01:32:21.630][7e9ca24b] POST[DATA]: {"Offset":"0","Limit":"50","Search":"","Action":"Contacts","XToken":"c24c873fd8d1ede8ab4bd43261870346"}
+[01:32:21.632][7e9ca24b] INFO[NOTICE]: exception 'Exception' with message 'Empty PDO DSN configuration' in /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php:95
+Stack trace:
+#0 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(354): RainLoop\Common\PdoAbstract->getPDO()
+#1 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(392): RainLoop\Common\PdoAbstract->getSystemValue('mysql-ab-versio...', true)
+#2 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(531): RainLoop\Common\PdoAbstract->getVersion('mysql-ab-versio...')
+#3 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook/PdoAddressBook.php(1903): RainLoop\Common\PdoAbstract->dataBaseUpgrade('mysql-ab-versio...', Array)
+#4 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook/PdoAddressBook.php(1060): RainLoop\Providers\AddressBook\PdoAddressBook->SyncDatabase()
+#5 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook.php(133): RainLoop\Providers\AddressBook\PdoAddressBook->GetContacts('antoine@nebulae...', 0, 50, '', 0)
+#6 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Actions.php(6996): RainLoop\Providers\AddressBook->GetContacts('antoine@nebulae...', 0, 50, '', 0)
+#7 [internal function]: RainLoop\Actions->DoContacts()
+#8 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/ServiceActions.php(172): call_user_func(Array)
+#9 [internal function]: RainLoop\ServiceActions->ServiceAjax('')
+#10 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(146): call_user_func(Array, '')
+#11 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(56): RainLoop\Service->localHandle()
+#12 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(79): RainLoop\Service->__construct()
+#13 /var/www/mail/rainloop/v/1.11.0.203/app/handle.php(94): RainLoop\Service::Handle()
+#14 /var/www/mail/rainloop/v/1.11.0.203/include.php(225): include('/var/www/mail/r...')
+#15 /var/www/mail/index.php(13): include('/var/www/mail/r...')
+#16 {main}
+[01:32:21.632][7e9ca24b] AJAX[DATA]: {"Action":"Contacts","Result":false,"ErrorCode":999,"ErrorMessage":"0 - Empty PDO DSN configuration","ErrorMessageAdditional":"","Time":14}
+[01:32:21.636][7e9ca24b] INFO[MEMORY]: Memory peak usage: 1.25MB
+[01:32:21.636][7e9ca24b] INFO[TIME]: Time delta: 0.017891883850098
+
+[01:32:21.696][6fc2deab] INFO[DATA]: [DATE:09.05.17][OFFSET:-00][RL:1.11.0.203][PHP:5.6.30-0+deb8u1][IP:192.168.100.15][PID:3948][nginx/1.10.3][fpm-fcgi]
+[01:32:21.696][6fc2deab] INFO[DATA]: [Suhosin:off][APC:off][MB:on][PDO:mysql][Streams:tcp,udp,unix,udg,ssl,sslv3,tls,tlsv1.0,tlsv1.1,tlsv1.2]
+[01:32:21.696][6fc2deab] REQUEST[NOTE]: [POST] http://mail.nebulae.co/?/Ajax/&q[]=/_MtstslHP_ZrfKFO5SXsgttPr8uPfB9pvOuRXUMs5VBlxGBSv6ZzD_si7AS4brfBGIXok4htxRI3wPJVpzEDXgBtqEkPt-NgpPFTrhI0_nifTnXvHf2uUgJMEonspbSrxMmLtZYvb2n4Du5AjO4BtOTg1mSe7bRPNkIvN8EnD8YqYWL2CaUfrYufNdkcgA2V0GhIWRKPjgYWrKAHXgrBRP-qeZkxBqW3--qLO8Kd47Wn2rQUF_keJfVM7BXltFkec4iVOSszNtKxj26YQ6hYPKLalD5aIuA5uyLS0ddxCtVQ3mnG9wk8b7QYDs8kEoSKbmvQBw04LE49BefDUsTxQ5xICncnG0zp-/
+[01:32:21.697][6fc2deab] AJAX[NOTE]: Action: DoFolderInformation
+[01:32:21.697][6fc2deab] POST[DATA]: {"Folder":"INBOX","FlagsUids":"","UidNext":"26","Action":"FolderInformation","XToken":"c24c873fd8d1ede8ab4bd43261870346"}
+[01:32:21.698][6fc2deab] IMAP[NOTE]: Start connection to "ssl://192.168.100.20:993"
+[01:32:21.712][6fc2deab] IMAP[NOTE]: Connected (success)
+[01:32:21.751][6fc2deab] IMAP[DATA]: < * OK [CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE AUTH=PLAIN AUTH=LOGIN] Dovecot ready.\r\n
+[01:32:21.751][6fc2deab] IMAP[DATA]: > TAG1 AUTHENTICATE PLAIN\r\n
+[01:32:21.752][6fc2deab] IMAP[DATA]: < + \r\n
+[01:32:21.752][6fc2deab] IMAP[SECURE]: > *******\r\n
+[01:32:21.756][6fc2deab] IMAP[DATA]: < TAG1 OK [CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS SPECIAL-USE BINARY MOVE] Logged in\r\n
+[01:32:21.756][6fc2deab] IMAP[DATA]: > TAG2 CAPABILITY\r\n
+[01:32:21.758][6fc2deab] IMAP[DATA]: < * CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE SORT SORT=DISPLAY THREAD=REFERENCES THREAD=REFS THREAD=ORDEREDSUBJECT MULTIAPPEND URL-PARTIAL CATENATE UNSELECT CHILDREN NAMESPACE UIDPLUS LIST-EXTENDED I18NLEVEL=1 CONDSTORE QRESYNC ESEARCH ESORT SEARCHRES WITHIN CONTEXT=SEARCH LIST-STATUS SPECIAL-USE BINARY MOVE\r\n
+[01:32:21.759][6fc2deab] IMAP[DATA]: < TAG2 OK Capability completed.\r\n
+[01:32:21.759][6fc2deab] IMAP[DATA]: > TAG3 STATUS "INBOX" (MESSAGES UNSEEN UIDNEXT HIGHESTMODSEQ)\r\n
+[01:32:21.760][6fc2deab] IMAP[DATA]: < * STATUS INBOX (MESSAGES 10 UIDNEXT 26 UNSEEN 1 HIGHESTMODSEQ 79)\r\n
+[01:32:21.760][6fc2deab] IMAP[DATA]: < TAG3 OK Status completed.\r\n
+[01:32:21.760][6fc2deab] AJAX[DATA]: {"Action":"FolderInformation","Result":{"Folder":"INBOX","Hash":"acdb1421bb586b4626972b4db2e156e5","MessageCount":10,"MessageUnseenCount":1,"UidNext":"26","Flags":[],"HighestModSeq":"79","NewMessages":[],"Version":"1.11.0.203"},"Time":75}
+[01:32:21.764][6fc2deab] IMAP[DATA]: > TAG4 LOGOUT\r\n
+[01:32:21.764][6fc2deab] IMAP[DATA]: < * BYE Logging out\r\n
+[01:32:21.764][6fc2deab] IMAP[DATA]: < TAG4 OK Logout completed.\r\n
+[01:32:21.765][6fc2deab] IMAP[NOTE]: Disconnected from "ssl://192.168.100.20:993" (success)
+[01:32:21.765][6fc2deab] INFO[MEMORY]: Memory peak usage: 1.25MB
+[01:32:21.765][6fc2deab] INFO[TIME]: Time delta: 0.080103158950806
+
+[01:32:24.155][cfa2f4e4] INFO[DATA]: [DATE:09.05.17][OFFSET:-00][RL:1.11.0.203][PHP:5.6.30-0+deb8u1][IP:192.168.100.15][PID:4056][nginx/1.10.3][fpm-fcgi]
+[01:32:24.155][cfa2f4e4] INFO[DATA]: [Suhosin:off][APC:off][MB:on][PDO:mysql][Streams:tcp,udp,unix,udg,ssl,sslv3,tls,tlsv1.0,tlsv1.1,tlsv1.2]
+[01:32:24.155][cfa2f4e4] REQUEST[NOTE]: [POST] http://mail.nebulae.co/?/Ajax/&q[]=/_MtstslHP_ZrfKFO5SXsgttPr8uPfB9pvOuRXUMs5VBlxGBSv6ZzD_si7AS4brfBGIXok4htxRI3wPJVpzEDXgBtqEkPt-NgpPFTrhI0_nifTnXvHf2uUgJMEonspbSrxMmLtZYvb2n4Du5AjO4BtOTg1mSe7bRPNkIvN8EnD8YqYWL2CaUfrYufNdkcgA2V0GhIWRKPjgYWrKAHXgrBRP-qeZkxBqW3--qLO8Kd47Wn2rQUF_keJfVM7BXltFkec4iVOSszNtKxj26YQ6hYPKLalD5aIuA5uyLS0ddxCtVQ3mnG9wk8b7QYDs8kEoSKbmvQBw04LE49BefDUsTxQ5xICncnG0zp-/
+[01:32:24.155][cfa2f4e4] AJAX[NOTE]: Action: DoContactsSync
+[01:32:24.156][cfa2f4e4] POST[DATA]: {"Action":"ContactsSync","XToken":"c24c873fd8d1ede8ab4bd43261870346"}
+[01:32:24.157][cfa2f4e4] INFO[NOTICE]: exception 'Exception' with message 'Empty PDO DSN configuration' in /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php:95
+Stack trace:
+#0 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(354): RainLoop\Common\PdoAbstract->getPDO()
+#1 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(392): RainLoop\Common\PdoAbstract->getSystemValue('mysql-ab-versio...', true)
+#2 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Common/PdoAbstract.php(531): RainLoop\Common\PdoAbstract->getVersion('mysql-ab-versio...')
+#3 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook/PdoAddressBook.php(1903): RainLoop\Common\PdoAbstract->dataBaseUpgrade('mysql-ab-versio...', Array)
+#4 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook/PdoAddressBook.php(669): RainLoop\Providers\AddressBook\PdoAddressBook->SyncDatabase()
+#5 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Providers/AddressBook.php(75): RainLoop\Providers\AddressBook\PdoAddressBook->Sync('antoine@nebulae...', 'https://contact...', 'antoine', 'gfderfv6547852H...')
+#6 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Actions.php(6697): RainLoop\Providers\AddressBook->Sync('antoine@nebulae...', 'https://contact...', 'antoine', 'gfderfv6547852H...')
+#7 [internal function]: RainLoop\Actions->DoContactsSync()
+#8 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/ServiceActions.php(172): call_user_func(Array)
+#9 [internal function]: RainLoop\ServiceActions->ServiceAjax('')
+#10 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(146): call_user_func(Array, '')
+#11 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(56): RainLoop\Service->localHandle()
+#12 /var/www/mail/rainloop/v/1.11.0.203/app/libraries/RainLoop/Service.php(79): RainLoop\Service->__construct()
+#13 /var/www/mail/rainloop/v/1.11.0.203/app/handle.php(94): RainLoop\Service::Handle()
+#14 /var/www/mail/rainloop/v/1.11.0.203/include.php(225): include('/var/www/mail/r...')
+#15 /var/www/mail/index.php(13): include('/var/www/mail/r...')
+#16 {main}
+[01:32:24.158][cfa2f4e4] AJAX[DATA]: {"Action":"ContactsSync","Result":false,"ErrorCode":999,"ErrorMessage":"0 - Empty PDO DSN configuration","ErrorMessageAdditional":"","Time":14}
+[01:32:24.162][cfa2f4e4] INFO[MEMORY]: Memory peak usage: 1.25MB
+[01:32:24.162][cfa2f4e4] INFO[TIME]: Time delta: 0.018472909927368

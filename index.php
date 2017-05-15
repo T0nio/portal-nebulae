@@ -52,9 +52,10 @@
     <div class="container main-cont">
       <div class="jumbotron">
         <h1>Portail Nebulae</h1>
-        <p>	Bla bla bla bienvenue sur la béta de Nebulae! <br>
-        	Auth unique. Utilise ce compte partout! (n'essaye pas de créer un compte sur les autres services)<br>
-        	Reviens ici régulièrement pour savoir ce qui est sorti de nouveau!
+        <p>	Bienvenue sur la version BETA de Nebulae! Merci d'être ici! <br>
+          Le compte que tu viens de créer sur ce portail te sera utile partout, c'est avec lui que tu t'authentifiera.<br>
+        	La beta va durer entre une et deux semaines. L'idée est de récolter le maximum de feedbacks (positifs &amp; négatifs) afin de proposer une V1 qui soit au top!<br>
+          N'hésites pas à me contacter par le moyen de ton choix pour faire tes feedbacks! Je suis très dispo pour le projet en ce moment!
         </p>
         <p>
           <a class="btn btn-lg btn-primary" href="#services" role="button">Jetter un oeil aux services déjà en place!</a>
@@ -68,7 +69,7 @@
 	      	</div>
 	      	<div class="col-md-4">
 	      		<a href="https://wiki.nebulae.co"><img src="/img/NebulaeWiki.png" alt="Nebulae Wiki"></a>
-	      		<p>Pour partager la connaissance ! Il y a déjà quelques tutos, n'hésitez pas à en rajouter!</p>
+	      		<p>Pour partager la connaissance ! Il y a déjà quelques tutos pour utiliser les services. N'hésites pas à en rajouter, les modifier, les améliorer!</p>
 	      	</div>
 	      	<div class="col-md-4">
 	      		<a href="https://forum.nebulae.co"><img src="/img/NebulaeForum.png" alt="Nebulae Forum"></a>
@@ -77,12 +78,12 @@
       	</div>
       	<div class="row">
       		<div class="col-md-4">
-      			<a href="https://calendrier.nebulae.co"><img src="/img/Nebulae.png" alt="Nebulae Calendrier"></a>
+      			<a href="https://calendrier.nebulae.co"><img src="/img/NebulaeCalendar.png" alt="Nebulae Calendrier"></a>
       			<p>Syncronisez votre calendrier entre tous vos appareils!<br/>
 				<strong>Tip</strong> les deux plateformes Calendrier &amp; Contacts sont en fait la même plateforme (accessible <a href="https://dav.nebulae.co">ici</a> aussi)</p>
       		</div>
 	      	<div class="col-md-4">
-	      		<a href="https://contact.nebulae.co"><img src="/img/Nebulae.png" alt="Nebulae Contacts"></a>
+	      		<a href="https://contact.nebulae.co"><img src="/img/NebulaeContacts.png" alt="Nebulae Contacts"></a>
 	      		<p>Syncroniser vos contacts avec tous vos appareils! <br/>
 	      		<strong>Tip</strong> les deux plateformes Calendrier &amp; Contacts sont en fait la même plateforme (accessible <a href="https://dav.nebulae.co">ici</a> aussi)</p>
 	      	</div>
