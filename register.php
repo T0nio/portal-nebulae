@@ -52,11 +52,18 @@
                                         $ldapUser["sn"] = $_POST["sn"];
                                         $ldapUser["uidnumber"] = $uidnumber;
                                         $ldapUser["userpassword"] = generate_password($_POST["password"]);
-                                        var_dump($ldapUser);
                                         if(ldap_add($ldapconn, $dn, $ldapUser)){
-                                            $req = $bdd->prepare("UPDATE accessCode SET used = 1 WHERE code = :code");
-                                            $req->execute(array("code" => $user["code"]));
-                                            header("Location: login.php?new=1&uid=".$uid);
+                                            $groupDN = "cn=Member,ou=Groups,dc=nebulae,dc=co";
+                                            $entry["memberuid"] = $uid;
+
+                                            if(ldap_mod_add($ldapconn, $groupDN, $entry)){
+                                                $req = $bdd->prepare("UPDATE accessCode SET used = 1 WHERE code = :code");
+                                                $req->execute(array("code" => $user["code"]));
+                                                header("Location: login.php?new=1&uid=".$uid);                                                
+                                            }else{
+                                                $error = "Une erreur est survenue.4";
+                                            }
+
                                         }else{ 
                                             $error = "Une erreur est survenue.3";
                                         }
